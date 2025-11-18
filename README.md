@@ -15,104 +15,104 @@ This project implements a simple Restaurant Menu Display API using **Node.js** a
 - Beverage
 
 ## Project Structure
+# Spice & Slice — Restaurant Menu Display API
+
+About
+-----
+Spice & Slice is a small demo project that implements a simple Restaurant Menu Display API using Node.js and Express, plus a minimal static frontend that fetches data from the API.
+
+Technologies
+------------
+- Node.js + Express
+- HTML, CSS, vanilla JavaScript (frontend)
+
+Repository
+----------
+https://github.com/basithabbasks/-Restaurant-Menu-Display-API
+
+Project structure
+-----------------
 ```
 restaurant-menu-api/
 ├─ public/
 │  ├─ index.html
 │  ├─ style.css
 │  └─ script.js
-├─ .gitignore
 ├─ package.json
 ├─ README.md
 └─ server.js
 ```
 
-## API Documentation
+Quick start
+-----------
+Prerequisites: Node.js (14+), npm
 
-### GET /menu
-- **Method:** GET
-- **Description:** Returns a JSON array with all menu items.
-- **Sample Response:**
-```json
-[
-  {
-    "id": 1,
-    "name": "Margherita Pizza",
-    "category": "Main Course",
-    "price": 350,
-    "isVegetarian": true,
-    "description": "Classic pizza with tomato, basil and mozzarella."
-  }
-]
+Clone and install:
+
+```powershell
+git clone https://github.com/basithabbasks/-Restaurant-Menu-Display-API.git
+cd restaurant-menu-api
+npm install
 ```
 
-### GET /menu/vegetarian
-- **Method:** GET
-- **Description:** Returns only vegetarian menu items (`isVegetarian: true`).
-- **Sample Response:**
-```json
-[
-  {
-    "id": 1,
-    "name": "Margherita Pizza",
-    "category": "Main Course",
-    "price": 350,
-    "isVegetarian": true,
-    "description": "Classic pizza with tomato, basil and mozzarella."
-  }
-]
+Run the server (default port 3000):
+
+```powershell
+npm start
 ```
 
-### GET /menu/categories
-- **Method:** GET
-- **Description:** Returns unique categories and how many items are in each category.
-- **Sample Response:**
-```json
-{
-  "categories": [
-    { "name": "Appetizer", "itemCount": 2 },
-    { "name": "Main Course", "itemCount": 3 },
-    { "name": "Dessert", "itemCount": 1 },
-    { "name": "Beverage", "itemCount": 1 }
-  ]
-}
+Then open the frontend in your browser:
+
+http://localhost:3000/
+
+Environment
+-----------
+- The server uses `process.env.PORT` if set. To run on a different port:
+
+```powershell
+$env:PORT=4000; npm start
 ```
 
-## Installation & Setup Instructions
+API Endpoints
+-------------
+- GET /menu — returns all menu items
+- GET /menu/vegetarian — returns only vegetarian items
+- GET /menu/categories — returns unique categories and item counts
 
-1. Clone the repository:
-   ```bash
-   git clone <REPO_URL>
-   cd restaurant-menu-api
-   ```
+Example requests
+----------------
+Get all menu items:
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+curl http://localhost:3000/menu
+```
 
-3. Start the server (port 3000):
-   ```bash
-   npm start
-   ```
+Get vegetarian items:
 
-4. Open the frontend:
-   Visit `http://localhost:3000/` in your browser.
+```bash
+curl http://localhost:3000/menu/vegetarian
+```
 
-5. API endpoints:
-   - `http://localhost:3000/menu`
-   - `http://localhost:3000/menu/vegetarian`
-   - `http://localhost:3000/menu/categories`
+Get categories:
 
-## Features
-- Express server with three GET endpoints (`/menu`, `/menu/vegetarian`, `/menu/categories`).
-- Simple static frontend using `fetch()` to load and display menu data.
-- Vegetarian items are labeled with a visual badge.
-- Error handling in frontend fetch requests.
+```bash
+curl http://localhost:3000/menu/categories
+```
 
-## GitHub Repository Link
-Add your GitHub repository URL here after pushing the project.
+Frontend
+--------
+The `public/index.html` page fetches `/menu` on load and displays the items. It is served statically by `server.js`.
 
-## Author Information
-- Your Name
+Contributing
+------------
+- Feel free to open issues or submit pull requests.
+- If you add features, please include tests (if applicable) and update this README.
+
+License
+-------
+This project is published under the MIT license. See the `LICENSE` file.
+
+Author
+------
+Your Name
 
